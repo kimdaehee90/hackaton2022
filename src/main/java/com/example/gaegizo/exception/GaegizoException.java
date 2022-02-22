@@ -1,4 +1,4 @@
-package com.example.gaegizo.domain.exception;
+package com.example.gaegizo.exception;
 
 import lombok.Getter;
 

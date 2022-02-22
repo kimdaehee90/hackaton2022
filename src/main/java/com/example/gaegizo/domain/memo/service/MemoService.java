@@ -2,7 +2,7 @@ package com.example.gaegizo.domain.memo.service;
 
 import com.example.gaegizo.domain.compareBox.domain.CompareBox;
 import com.example.gaegizo.domain.compareBox.repository.CompareBoxRepository;
-import com.example.gaegizo.domain.exception.GaegizoException;
+import com.example.gaegizo.exception.GaegizoException;
 import com.example.gaegizo.domain.memo.domain.Memo;
 import com.example.gaegizo.domain.memo.dto.MemoDto;
 import com.example.gaegizo.domain.memo.repository.MemoRepository;
@@ -11,8 +11,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import static com.example.gaegizo.domain.exception.GaegizoErrorCode.COMPARE_BOX_NOT_FOUND;
-import static com.example.gaegizo.domain.exception.GaegizoErrorCode.MEMO_NOT_FOUND;
+import static com.example.gaegizo.exception.GaegizoErrorCode.COMPARE_BOX_NOT_FOUND;
+import static com.example.gaegizo.exception.GaegizoErrorCode.MEMO_NOT_FOUND;
 
 @Service
 @RequiredArgsConstructor

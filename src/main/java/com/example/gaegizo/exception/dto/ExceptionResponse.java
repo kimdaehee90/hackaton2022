@@ -1,6 +1,6 @@
-package com.example.gaegizo.domain.exception.dto;
+package com.example.gaegizo.exception.dto;
 
-import com.example.gaegizo.domain.exception.GaegizoErrorCode;
+import com.example.gaegizo.exception.GaegizoErrorCode;
 import lombok.*;
 
 @NoArgsConstructor
