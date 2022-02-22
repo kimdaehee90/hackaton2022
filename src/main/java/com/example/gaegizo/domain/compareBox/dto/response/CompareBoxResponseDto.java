@@ -13,7 +13,7 @@ public class CompareBoxResponseDto {
     private String career;
     private String region;
     private String salary;
-    private Long averageSalary;
+    private String averageSalary;
     private String job;
     private String sectors;
     private String workType;

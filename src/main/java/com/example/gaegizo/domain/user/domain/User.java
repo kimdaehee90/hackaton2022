@@ -3,10 +3,8 @@ package com.example.gaegizo.domain.user.domain;
 import com.example.gaegizo.domain.compareBox.domain.CompareBox;
 import com.example.gaegizo.domain.interesetJob.domain.InterestJob;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -17,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Getter
+@Setter
 @Table(name = "user")
 public class User {
 

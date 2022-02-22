@@ -18,12 +18,10 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "compareBox")
 public class CompareBox {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "compare_box_id")
     private Long id;
     private String boxName;
     private String jobNumber1;
@@ -43,8 +41,8 @@ public class CompareBox {
     private Memo memo;
 
     @Builder
-    public CompareBox(Long id,String boxName,String jobNumber1,String jobNumber2, String jobNumber3){
-        this.id = id;
+    public CompareBox(User user,String boxName,String jobNumber1,String jobNumber2, String jobNumber3){
+        this.user = user;
         this.boxName = boxName;
         this.jobNumber1 = jobNumber1;
         this.jobNumber2 = jobNumber2;
