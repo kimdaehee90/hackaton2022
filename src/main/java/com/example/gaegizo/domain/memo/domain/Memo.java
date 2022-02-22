@@ -17,7 +17,9 @@ import javax.persistence.*;
 public class Memo {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "MEMO_ID")
+
+    @Column(name = "memo_id")
+
     private Long id;
 
     private String content;

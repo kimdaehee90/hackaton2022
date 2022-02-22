@@ -1,6 +1,7 @@
 package com.example.gaegizo.domain.compareBox.domain;
 
 import com.example.gaegizo.domain.interesetJob.domain.InterestJob;
+
 import com.example.gaegizo.domain.memo.domain.Memo;
 import com.example.gaegizo.domain.user.domain.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -24,7 +25,7 @@ public class CompareBox {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "compare_box_id")
     private Long id;
-
+    private String boxName;
     private String jobNumber1;
     private String jobNumber2;
     private String jobNumber3;
@@ -42,9 +43,13 @@ public class CompareBox {
     private Memo memo;
 
     @Builder
-    public CompareBox(String jobNumber1,String jobNumber2, String jobNumber3){
+    public CompareBox(Long id,String boxName,String jobNumber1,String jobNumber2, String jobNumber3){
+        this.id = id;
+        this.boxName = boxName;
         this.jobNumber1 = jobNumber1;
         this.jobNumber2 = jobNumber2;
         this.jobNumber3 = jobNumber3;
     }
+
+
 }
