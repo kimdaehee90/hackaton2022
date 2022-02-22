@@ -29,7 +29,7 @@ public class InterestJob {
 
     private String salary;
 
-    private Long averageSalary;
+    private String averageSalary;
 
     private String job; //직무
 
