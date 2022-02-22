@@ -11,8 +11,6 @@ import com.example.gaegizo.exception.GaegizoException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
-
 import static com.example.gaegizo.exception.GaegizoErrorCode.JOB_NUMBER_NOT_FOUND_EXCEPTION;
 import static com.example.gaegizo.exception.GaegizoErrorCode.USER_NOT_FOUND_EXCEPTION;
 
@@ -23,11 +21,9 @@ public class CompareBoxMapper {
     private final InterestJobRepository interestJobRepository;
     private final UserRepository userRepository;
 
-    public CompareBoxResponseDto getInterestJob(String jobNumber){
-        InterestJob interestJob = interestJobRepository.findByJobNumber(jobNumber).orElseThrow(
-                () -> new GaegizoException(JOB_NUMBER_NOT_FOUND_EXCEPTION)
-        );
-
+    public CompareBoxResponseDto getInterestJob(String jobNumber) {
+        InterestJob interestJob = interestJobRepository.findByJobNumber(jobNumber)
+                .orElseThrow(() -> new GaegizoException(JOB_NUMBER_NOT_FOUND_EXCEPTION));
         return new CompareBoxResponseDto(
                 interestJob.getCompanyName(),
                 interestJob.getCareer(),
@@ -45,13 +41,11 @@ public class CompareBoxMapper {
                 interestJob.getEducation(),
                 interestJob.getDeadline()
         );
-
     }
-    public CompareBox saveCompareBox(CompareBoxRequestDto compareBoxRequestDto){
 
-        User user = userRepository.findById(compareBoxRequestDto.getUserId()).orElseThrow(
-                () -> new GaegizoException(USER_NOT_FOUND_EXCEPTION)
-        );
+    public CompareBox saveCompareBox(CompareBoxRequestDto compareBoxRequestDto) {
+        User user = userRepository.findById(compareBoxRequestDto.getUserId())
+                .orElseThrow(() -> new GaegizoException(USER_NOT_FOUND_EXCEPTION));
         return new CompareBox(
                 user,
                 compareBoxRequestDto.getBoxName(),
@@ -59,6 +53,5 @@ public class CompareBoxMapper {
                 compareBoxRequestDto.getJobNumber2(),
                 compareBoxRequestDto.getJobNumber3()
         );
-
     }
 }

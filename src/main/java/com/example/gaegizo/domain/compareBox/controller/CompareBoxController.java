@@ -10,28 +10,25 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api")
 public class CompareBoxController {
+
     public final CompareBoxService compareBoxService;
 
-    @GetMapping("/api/compare")
+    @GetMapping("/compare")
     public List<CompareBoxResponseDto> compare(@RequestParam String jobNumber1,@RequestParam String jobNumber2,@RequestParam String jobNumber3){
-
         List<CompareBoxResponseDto> responseDtoList = compareBoxService.getCompareList(jobNumber1,jobNumber2,jobNumber3);
         return responseDtoList;
     }
 
-
-    @GetMapping("/api/announcement")
+    @GetMapping("/announcement")
     public CompareBoxResponseDto Announcement(@RequestParam String jobNumber){
         CompareBoxResponseDto response = compareBoxService.getAnnouncement(jobNumber);
         return response;
     }
 
-    @PostMapping("/api/compareBox")
+    @PostMapping("/compareBox")
     public void compareBox(@RequestBody CompareBoxRequestDto compareBoxRequestDto){
-
         compareBoxService.saveCompareBox(compareBoxRequestDto);
     }
-
-
 }
