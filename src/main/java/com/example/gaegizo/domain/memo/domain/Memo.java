@@ -22,9 +22,6 @@ public class Memo {
 
     private String content;
 
-//    @OneToOne(mappedBy = "memo", cascade = CascadeType.ALL)
-//    private CompareBox compareBox;
-
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "compare_box")
     private CompareBox compareBox;

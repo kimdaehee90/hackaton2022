@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class CompareBoxService {
     private final CompareBoxRepository compareBoxRepository;
 
-    public CompareBoxResponseDto getCompareList(String jobNumber1, String jobNumber2, String jobNumber3) {
-
-    }
+//    public CompareBoxResponseDto getCompareList(String jobNumber1, String jobNumber2, String jobNumber3) {
+//
+//    }
 }
