@@ -1,4 +1,4 @@
-package com.example.gaegizo.domain.interesetJob.domain;
+package com.example.gaegizo.domain.user.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
