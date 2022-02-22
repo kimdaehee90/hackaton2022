@@ -2,6 +2,7 @@ package com.example.gaegizo.interesetJob.service;
 
 import com.example.gaegizo.interesetJob.domain.InterestJob.InterestJob;
 import com.example.gaegizo.interesetJob.domain.InterestJob.InterestJobRepository;
+import com.example.gaegizo.interesetJob.dto.InterestJobDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONArray;
@@ -9,6 +10,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -28,25 +32,34 @@ public class ApiService {
             log.info("array = {}", array);
             for (int i = 0; i < array.size(); i++) {
                 jObj = (JSONObject) array.get(i);
+                JSONObject company = (JSONObject) jObj.get("company");
+                JSONObject companyDetail = (JSONObject) company.get("detail");
                 JSONObject position = (JSONObject) jObj.get("position");
                 JSONObject location = (JSONObject) position.get("location");
                 JSONObject industry = (JSONObject) position.get("industry");
 
                 JSONObject salary = (JSONObject) jObj.get("salary");
+
                 //Todo: 리팩토링 필요
                 InterestJob interestJob = interestJobRepository.findByjobNumber(jObj.get("id").toString())
-                        .map(entity -> entity.update(location.get("name").toString(), industry.get("name").toString(), salary.get("name").toString()))
+                        .map(entity -> entity.update(position.get("title").toString(), industry.get("name").toString(), salary.get("name").toString()))
                         .orElse(InterestJob.builder()
-                                .region(location.get("name").toString())
+                                .companyName(companyDetail.get("name").toString())
+                                .title(position.get("title").toString())
                                 .job(industry.get("name").toString())
                                 .salary(salary.get("name").toString())
                                 .jobNumber(jObj.get("id").toString())
                                 .build());
+
                 interestJobRepository.save(interestJob);
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public List<InterestJobDto> getInterestJobList() {
+        List<InterestJob> interestJobList = interestJobRepository.findAll();
+        return interestJobList.stream().map(InterestJobDto::from).collect(Collectors.toList());
     }
 }

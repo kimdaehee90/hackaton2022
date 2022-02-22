@@ -21,6 +21,8 @@ public class InterestJob {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String companyName;
+
     private String career;
 
     private String region;
@@ -41,14 +43,16 @@ public class InterestJob {
 
     private Long statistics;
 
-    private String jobNumber;
+    private String jobNumber; //공고 번호
 
     private String title;
 
-    private String Education;
+    private String education;
 
-    public InterestJob update(String region, String job, String salary) {
-        this.region = region;
+    private String deadline;
+
+    public InterestJob update(String title, String job, String salary) {
+        this.title = title;
         this.job = job;
         this.salary = salary;
         return this;
