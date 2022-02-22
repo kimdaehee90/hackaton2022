@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 
@@ -16,10 +17,20 @@ import javax.persistence.*;
 public class Memo {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "MEMO_ID")
     private Long id;
 
     private String content;
 
-    @OneToOne(mappedBy = "memo", cascade = CascadeType.ALL)
+//    @OneToOne(mappedBy = "memo", cascade = CascadeType.ALL)
+//    private CompareBox compareBox;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "compare_box")
     private CompareBox compareBox;
+
+    public Long update(String content) {
+        this.content = content;
+        return id;
+    }
 }
