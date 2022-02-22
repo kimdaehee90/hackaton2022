@@ -32,10 +32,6 @@ public class CompareBoxController {
 
         compareBoxService.saveCompareBox(compareBoxRequestDto);
     }
-    @GetMapping("/api/test")
-    public void test(){
-        compareBoxService.test();
-    }
 
 
 }
