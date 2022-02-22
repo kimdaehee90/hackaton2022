@@ -1,4 +1,4 @@
-package com.example.gaegizo.interesetJob.domain;
+package com.example.gaegizo.domain.interesetJob.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -26,4 +27,6 @@ public class User {
     private String userName;
 
     private String password;
+
+//    private List<>
 }

@@ -1,6 +1,6 @@
-package com.example.gaegizo.interesetJob.dto;
+package com.example.gaegizo.domain.interesetJob.dto;
 
-import com.example.gaegizo.interesetJob.domain.InterestJob.InterestJob;
+import com.example.gaegizo.domain.interesetJob.domain.InterestJob.InterestJob;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

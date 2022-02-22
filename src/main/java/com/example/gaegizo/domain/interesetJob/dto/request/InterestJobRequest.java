@@ -1,4 +1,4 @@
-package com.example.gaegizo.interesetJob.dto.request;
+package com.example.gaegizo.domain.interesetJob.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,8 +1,8 @@
-package com.example.gaegizo.interesetJob.controller;
+package com.example.gaegizo.domain.interesetJob.controller;
 
-import com.example.gaegizo.interesetJob.dto.request.InterestJobRequest;
-import com.example.gaegizo.interesetJob.dto.response.InterestJobResponse;
-import com.example.gaegizo.interesetJob.service.ApiService;
+import com.example.gaegizo.domain.interesetJob.dto.request.InterestJobRequest;
+import com.example.gaegizo.domain.interesetJob.dto.response.InterestJobResponse;
+import com.example.gaegizo.domain.interesetJob.service.ApiService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
