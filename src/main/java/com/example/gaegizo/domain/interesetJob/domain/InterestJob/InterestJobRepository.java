@@ -1,4 +1,4 @@
-package com.example.gaegizo.interesetJob.domain.InterestJob;
+package com.example.gaegizo.domain.interesetJob.domain.InterestJob;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

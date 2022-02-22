@@ -1,7 +1,10 @@
-package com.example.gaegizo.interesetJob.controller;
+package com.example.gaegizo.domain.interesetJob.controller;
 
-import com.example.gaegizo.interesetJob.service.ApiService;
+import com.example.gaegizo.domain.interesetJob.dto.request.InterestJobRequest;
+import com.example.gaegizo.domain.interesetJob.dto.response.InterestJobResponse;
+import com.example.gaegizo.domain.interesetJob.service.ApiService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
@@ -13,17 +16,18 @@ import java.net.URL;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
-public class CallApi {
+@Slf4j
+public class ApiController {
 
     private static final String KEY = "BDGzJGe6BHlD6WbYyYAOYUIcjxlt2nCfoyHkxIwNzLGN4eSSa";
 
     private final ApiService apiService;
 
     @PostMapping("/interestJob")
-    public String callApi(@RequestBody String/* dto*/ id) throws IOException {
-        System.out.println("id = " + id);
+    public String callApi(@RequestBody InterestJobRequest id) throws IOException {
+        log.info("id = {}", id.getId());
         StringBuilder result = new StringBuilder();
-        String urlStr = "https://oapi.saramin.co.kr/job-search?access-key="+KEY+"&id="+id;
+        String urlStr = "https://oapi.saramin.co.kr/job-search?access-key=" + KEY + "&id=" + id.getId();
 
         URL url = new URL(urlStr);
 
@@ -41,9 +45,13 @@ public class CallApi {
         }
 
         urlConnection.disconnect();
-
         apiService.saveApi(result.toString());
-        System.out.println("result = " + result);
+        log.info("result = {}", result);
         return result.toString();
+    }
+
+    @GetMapping("/interestJob/list")
+    public InterestJobResponse getInterestJobList() {
+        return new InterestJobResponse(apiService.getInterestJobList());
     }
 }
