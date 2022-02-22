@@ -41,7 +41,7 @@ public class ApiService {
                 JSONObject salary = (JSONObject) jObj.get("salary");
 
                 //Todo: 리팩토링 필요
-                InterestJob interestJob = interestJobRepository.findByjobNumber(jObj.get("id").toString())
+                InterestJob interestJob = interestJobRepository.findByJobNumber(jObj.get("id").toString())
                         .map(entity -> entity.update(position.get("title").toString(), industry.get("name").toString(), salary.get("name").toString()))
                         .orElse(InterestJob.builder()
                                 .companyName(companyDetail.get("name").toString())

@@ -37,8 +37,10 @@ public class CompareBox {
     @JsonManagedReference
     private User user;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "memo_id")
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "memo_id")
+//    private Memo memo;
+    @OneToOne(mappedBy = "compareBox", cascade = CascadeType.ALL)
     private Memo memo;
 
     @Builder

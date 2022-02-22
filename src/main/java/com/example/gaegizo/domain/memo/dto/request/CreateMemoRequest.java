@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class MemoCreateRequest {
+public class CreateMemoRequest {
 
     private Long compareBoxId;
     private String content;
