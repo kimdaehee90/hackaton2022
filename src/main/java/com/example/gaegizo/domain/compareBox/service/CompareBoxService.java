@@ -34,4 +34,9 @@ public class CompareBoxService {
         return result;
 
     }
+
+    public CompareBoxResponseDto getAnnouncement(String jobNumber) {
+        CompareBoxResponseDto compareBoxResponseDto = compareBoxMapper.getInterestJob(jobNumber);
+        return compareBoxResponseDto;
+    }
 }

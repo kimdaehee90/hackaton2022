@@ -15,11 +15,17 @@ public class CompareBoxController {
     public final CompareBoxService compareBoxService;
 
     @GetMapping("/api/compare")
-    public List<CompareBoxResponseDto> getcompare(@RequestParam String jobNumber1,@RequestParam String jobNumber2,@RequestParam String jobNumber3){
-        System.out.println("1===========================");
+    public List<CompareBoxResponseDto> compare(@RequestParam String jobNumber1,@RequestParam String jobNumber2,@RequestParam String jobNumber3){
+
         List<CompareBoxResponseDto> responseDtoList = compareBoxService.getCompareList(jobNumber1,jobNumber2,jobNumber3);
-        System.out.println("2===========================");
         return responseDtoList;
+    }
+
+
+    @GetMapping("/api/announcement")
+    public CompareBoxResponseDto Announcement(@RequestParam String jobNumber){
+        CompareBoxResponseDto response = compareBoxService.getAnnouncement(jobNumber);
+        return response;
     }
 
 
