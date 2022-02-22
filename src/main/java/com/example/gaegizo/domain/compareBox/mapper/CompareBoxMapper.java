@@ -7,10 +7,14 @@ import com.example.gaegizo.domain.interesetJob.domain.InterestJob;
 import com.example.gaegizo.domain.interesetJob.repository.InterestJobRepository;
 import com.example.gaegizo.domain.user.domain.User;
 import com.example.gaegizo.domain.user.repository.UserRepository;
+import com.example.gaegizo.exception.GaegizoException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
+
+import static com.example.gaegizo.exception.GaegizoErrorCode.JOB_NUMBER_NOT_FOUND_EXCEPTION;
+import static com.example.gaegizo.exception.GaegizoErrorCode.USER_NOT_FOUND_EXCEPTION;
 
 @Component
 @RequiredArgsConstructor
@@ -21,7 +25,7 @@ public class CompareBoxMapper {
 
     public CompareBoxResponseDto getInterestJob(String jobNumber){
         InterestJob interestJob = interestJobRepository.findByJobNumber(jobNumber).orElseThrow(
-                () -> new NullPointerException("공고 번호가 잘못 되었습니다. ")
+                () -> new GaegizoException(JOB_NUMBER_NOT_FOUND_EXCEPTION)
         );
 
         return new CompareBoxResponseDto(
@@ -46,7 +50,7 @@ public class CompareBoxMapper {
     public CompareBox saveCompareBox(CompareBoxRequestDto compareBoxRequestDto){
 
         User user = userRepository.findById(compareBoxRequestDto.getUserId()).orElseThrow(
-                () -> new NullPointerException("없는 유저입니다. ")
+                () -> new GaegizoException(USER_NOT_FOUND_EXCEPTION)
         );
         return new CompareBox(
                 user,
