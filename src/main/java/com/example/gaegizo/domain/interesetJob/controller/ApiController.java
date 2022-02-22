@@ -35,18 +35,16 @@ public class ApiController {
         urlConnection.setRequestMethod("GET");
 
         BufferedReader br;
-
         br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
 
         String returnLine;
-
         while ((returnLine = br.readLine()) != null) {
             result.append(returnLine + "\n\r");
         }
-
         urlConnection.disconnect();
         apiService.saveApi(result.toString());
         log.info("result = {}", result);
+
         return result.toString();
     }
 

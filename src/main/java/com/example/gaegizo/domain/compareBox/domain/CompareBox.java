@@ -29,7 +29,7 @@ public class CompareBox {
     private String jobNumber3;
 
     @JsonBackReference
-    @OneToMany(mappedBy = "compareBox",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "compareBox", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<InterestJob> interestJob = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -41,13 +41,11 @@ public class CompareBox {
     private Memo memo;
 
     @Builder
-    public CompareBox(User user,String boxName,String jobNumber1,String jobNumber2, String jobNumber3){
+    public CompareBox(User user, String boxName, String jobNumber1, String jobNumber2, String jobNumber3) {
         this.user = user;
         this.boxName = boxName;
         this.jobNumber1 = jobNumber1;
         this.jobNumber2 = jobNumber2;
         this.jobNumber3 = jobNumber3;
     }
-
-
 }
