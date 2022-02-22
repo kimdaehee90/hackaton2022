@@ -37,4 +37,5 @@ public class CompareBoxController {
         compareBoxService.test();
     }
 
+
 }

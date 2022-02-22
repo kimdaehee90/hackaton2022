@@ -37,6 +37,7 @@ public class CompareBoxService {
 
     }
 
+
     public CompareBoxResponseDto getAnnouncement(String jobNumber) {
         CompareBoxResponseDto compareBoxResponseDto = compareBoxMapper.getInterestJob(jobNumber);
         return compareBoxResponseDto;
@@ -68,5 +69,6 @@ public class CompareBoxService {
         interestJobRepository.save(interestJob);
 
     }
+
 
 }
