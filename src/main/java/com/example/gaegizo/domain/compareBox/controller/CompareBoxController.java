@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class CompareBoxController {
     public final CompareBoxService compareBoxService;
 
-    @GetMapping("/api/compare")
-    public void getcompare(@RequestParam String jobNumber1,@RequestParam String jobNumber2,@RequestParam String jobNumber3){
-        CompareBoxResponseDto compareBoxResponseDto = compareBoxService.getCompareList(jobNumber1,jobNumber2,jobNumber3);
-    }
+//    @GetMapping("/api/compare")
+//    public void getcompare(@RequestParam String jobNumber1,@RequestParam String jobNumber2,@RequestParam String jobNumber3){
+//        CompareBoxResponseDto compareBoxResponseDto = compareBoxService.getCompareList(jobNumber1,jobNumber2,jobNumber3);
+//    }
 }
