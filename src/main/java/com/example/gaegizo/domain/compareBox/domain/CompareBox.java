@@ -8,11 +8,6 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import com.example.gaegizo.domain.interesetJob.domain.InterestJob.InterestJob;
-import com.example.gaegizo.domain.user.domain.User;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.*;
 
 
 import javax.persistence.*;
