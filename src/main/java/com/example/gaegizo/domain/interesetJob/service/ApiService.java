@@ -1,7 +1,7 @@
 package com.example.gaegizo.domain.interesetJob.service;
 
-import com.example.gaegizo.domain.interesetJob.domain.InterestJob.InterestJob;
-import com.example.gaegizo.domain.interesetJob.domain.InterestJob.InterestJobRepository;
+import com.example.gaegizo.domain.interesetJob.domain.InterestJob;
+import com.example.gaegizo.domain.interesetJob.repository.InterestJobRepository;
 import com.example.gaegizo.domain.interesetJob.dto.InterestJobDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
