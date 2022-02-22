@@ -1,5 +1,7 @@
 package com.example.gaegizo.domain.compareBox.service;
 
+import com.example.gaegizo.domain.compareBox.domain.CompareBox;
+import com.example.gaegizo.domain.compareBox.dto.request.CompareBoxRequestDto;
 import com.example.gaegizo.domain.compareBox.dto.response.CompareBoxResponseDto;
 import com.example.gaegizo.domain.compareBox.mapper.CompareBoxMapper;
 import com.example.gaegizo.domain.compareBox.repository.CompareBoxRepository;
@@ -38,5 +40,12 @@ public class CompareBoxService {
     public CompareBoxResponseDto getAnnouncement(String jobNumber) {
         CompareBoxResponseDto compareBoxResponseDto = compareBoxMapper.getInterestJob(jobNumber);
         return compareBoxResponseDto;
+    }
+
+    public void saveCompareBox(CompareBoxRequestDto compareBoxRequestDto) {
+
+        CompareBox result = compareBoxMapper.saveCompareBox(compareBoxRequestDto);
+
+        compareBoxRepository.save(result);
     }
 }

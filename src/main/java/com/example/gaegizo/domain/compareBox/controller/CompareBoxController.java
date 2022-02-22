@@ -30,6 +30,7 @@ public class CompareBoxController {
     @PostMapping("/api/compareBox")
     public void compareBox(@RequestBody CompareBoxRequestDto compareBoxRequestDto){
 
+        compareBoxService.saveCompareBox(compareBoxRequestDto);
     }
 
 }

@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class CompareBoxRequestDto {
 
     private Long userId;
+    private String boxName;
     private String jobNumber1;
     private String jobNumber2;
     private String jobNumber3;

@@ -1,5 +1,7 @@
 package com.example.gaegizo.domain.compareBox.mapper;
 
+import com.example.gaegizo.domain.compareBox.domain.CompareBox;
+import com.example.gaegizo.domain.compareBox.dto.request.CompareBoxRequestDto;
 import com.example.gaegizo.domain.compareBox.dto.response.CompareBoxResponseDto;
 import com.example.gaegizo.domain.interesetJob.domain.InterestJob;
 import com.example.gaegizo.domain.interesetJob.repository.InterestJobRepository;
@@ -33,6 +35,16 @@ public class CompareBoxMapper {
                 interestJob.get().getTitle(),
                 interestJob.get().getEducation(),
                 interestJob.get().getDeadline()
+        );
+
+    }
+    public CompareBox saveCompareBox(CompareBoxRequestDto compareBoxRequestDto){
+        return new CompareBox(
+                compareBoxRequestDto.getUserId(),
+                compareBoxRequestDto.getBoxName(),
+                compareBoxRequestDto.getJobNumber1(),
+                compareBoxRequestDto.getJobNumber2(),
+                compareBoxRequestDto.getJobNumber3()
         );
 
     }
