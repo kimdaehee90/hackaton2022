@@ -1,11 +1,10 @@
 package com.example.gaegizo.domain.compareBox.controller;
 
+import com.example.gaegizo.domain.compareBox.dto.request.CompareBoxRequestDto;
 import com.example.gaegizo.domain.compareBox.dto.response.CompareBoxResponseDto;
 import com.example.gaegizo.domain.compareBox.service.CompareBoxService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +27,9 @@ public class CompareBoxController {
         return response;
     }
 
+    @PostMapping("/api/compareBox")
+    public void compareBox(@RequestBody CompareBoxRequestDto compareBoxRequestDto){
+
+    }
 
 }
