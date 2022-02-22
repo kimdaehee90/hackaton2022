@@ -39,6 +39,7 @@ public class CompareBoxMapper {
 
     }
     public CompareBox saveCompareBox(CompareBoxRequestDto compareBoxRequestDto){
+
         return new CompareBox(
                 compareBoxRequestDto.getUserId(),
                 compareBoxRequestDto.getBoxName(),

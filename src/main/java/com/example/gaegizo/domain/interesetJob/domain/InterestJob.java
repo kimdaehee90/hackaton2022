@@ -3,10 +3,7 @@ package com.example.gaegizo.domain.interesetJob.domain;
 import com.example.gaegizo.domain.compareBox.domain.CompareBox;
 import com.example.gaegizo.domain.user.domain.User;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -14,6 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 @Builder
 public class InterestJob {
 
