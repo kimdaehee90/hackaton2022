@@ -19,7 +19,7 @@ public class CompareBox {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "compareBox_id")
+    @Column(name = "compare_box_id")
     private Long id;
 
     private String jobNumber1;
@@ -35,9 +35,9 @@ public class CompareBox {
     @JsonManagedReference
     private User user;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "memo_id")
-    private Memo memo;
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "memo_id")
+//    private Memo memo;
 
     @Builder
     public CompareBox(String jobNumber1,String jobNumber2, String jobNumber3){
