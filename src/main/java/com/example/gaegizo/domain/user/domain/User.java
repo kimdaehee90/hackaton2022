@@ -1,7 +1,7 @@
 package com.example.gaegizo.domain.user.domain;
 
 import com.example.gaegizo.domain.compareBox.domain.CompareBox;
-import com.example.gaegizo.domain.interesetJob.domain.InterestJob.InterestJob;
+import com.example.gaegizo.domain.interesetJob.domain.InterestJob;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,7 +25,7 @@ public class User {
     @Column(name = "user_id")
     private Long id;
 
-    @Column(name = "userNickName")
+    @Column(name = "user_nickname")
     private String userId;
 
     private String userName;

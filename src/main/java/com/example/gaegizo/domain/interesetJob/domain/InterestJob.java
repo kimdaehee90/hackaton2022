@@ -1,14 +1,14 @@
-package com.example.gaegizo.domain.interesetJob.domain.InterestJob;
+package com.example.gaegizo.domain.interesetJob.domain;
 
+import com.example.gaegizo.domain.compareBox.domain.CompareBox;
+import com.example.gaegizo.domain.user.domain.User;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
@@ -50,6 +50,16 @@ public class InterestJob {
     private String education;
 
     private String deadline;
+
+    @JsonManagedReference
+    @ManyToOne
+    @JoinColumn(name = "user_ID")
+    private User user;
+
+    @JsonManagedReference
+    @ManyToOne
+    @JoinColumn(name = "compareBox_id")
+    private CompareBox compareBox;
 
     public InterestJob update(String title, String job, String salary) {
         this.title = title;

@@ -1,15 +1,23 @@
 package com.example.gaegizo.domain.compareBox.domain;
 
+import com.example.gaegizo.domain.interesetJob.domain.InterestJob;
+import com.example.gaegizo.domain.memo.domain.Memo;
+import com.example.gaegizo.domain.user.domain.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import com.example.gaegizo.domain.interesetJob.domain.InterestJob.InterestJob;
 import com.example.gaegizo.domain.user.domain.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
 
 @NoArgsConstructor
 @Getter
@@ -19,7 +27,7 @@ public class CompareBox {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "compareBox_id")
+    @Column(name = "compare_box_id")
     private Long id;
 
     private String jobNumber1;
