@@ -16,10 +16,12 @@ import javax.persistence.*;
 public class Memo {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "memo_id")
     private Long id;
 
     private String content;
 
-    @OneToOne(mappedBy = "memo", cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "compare_box")
     private CompareBox compareBox;
 }

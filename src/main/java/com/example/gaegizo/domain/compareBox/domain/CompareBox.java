@@ -1,6 +1,7 @@
 package com.example.gaegizo.domain.compareBox.domain;
 
 import com.example.gaegizo.domain.interesetJob.domain.InterestJob;
+
 import com.example.gaegizo.domain.memo.domain.Memo;
 import com.example.gaegizo.domain.user.domain.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -8,11 +9,6 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import com.example.gaegizo.domain.interesetJob.domain.InterestJob.InterestJob;
-import com.example.gaegizo.domain.user.domain.User;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.*;
 
 
 import javax.persistence.*;
@@ -43,9 +39,8 @@ public class CompareBox {
     @JsonManagedReference
     private User user;
 
-//    @OneToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "memo_id")
-//    private Memo memo;
+    @OneToOne(mappedBy = "compareBox", cascade = CascadeType.ALL)
+    private Memo memo;
 
     @Builder
     public CompareBox(String jobNumber1,String jobNumber2, String jobNumber3){
