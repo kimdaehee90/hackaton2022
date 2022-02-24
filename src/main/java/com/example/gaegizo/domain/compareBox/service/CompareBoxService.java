@@ -54,5 +54,10 @@ public class CompareBoxService {
     }
 
 
+    public void test(){
+        Optional<InterestJob> interestJob = interestJobRepository.findByJobNumber("42349073");
+        interestJob.get().setSalary("4000");
+        interestJobRepository.save(interestJob.get());
+    }
 
 }

@@ -4,6 +4,7 @@ import com.example.gaegizo.domain.compareBox.dto.request.CompareBoxRequestDto;
 import com.example.gaegizo.domain.compareBox.dto.response.CompareBoxResponseDto;
 import com.example.gaegizo.domain.compareBox.service.CompareBoxService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,24 +15,31 @@ public class CompareBoxController {
     public final CompareBoxService compareBoxService;
 
     @GetMapping("/api/compare")
-    public List<CompareBoxResponseDto> compare(@RequestParam String jobNumber1,@RequestParam String jobNumber2,@RequestParam String jobNumber3){
+    public ResponseEntity<List<CompareBoxResponseDto>> compare(@RequestParam String jobNumber1, @RequestParam String jobNumber2, @RequestParam String jobNumber3){
 
-        List<CompareBoxResponseDto> responseDtoList = compareBoxService.getCompareList(jobNumber1,jobNumber2,jobNumber3);
-        return responseDtoList;
+        List<CompareBoxResponseDto> responseList = compareBoxService.getCompareList(jobNumber1,jobNumber2,jobNumber3);
+        return ResponseEntity.ok().body(responseList);
     }
 
 
     @GetMapping("/api/announcement")
-    public CompareBoxResponseDto Announcement(@RequestParam String jobNumber){
+    public ResponseEntity<CompareBoxResponseDto> Announcement(@RequestParam String jobNumber){
         CompareBoxResponseDto response = compareBoxService.getAnnouncement(jobNumber);
-        return response;
+        return ResponseEntity.ok().body(response);
     }
 
     @PostMapping("/api/compareBox")
-    public void compareBox(@RequestBody CompareBoxRequestDto compareBoxRequestDto){
+    public ResponseEntity<?> compareBox(@RequestBody CompareBoxRequestDto compareBoxRequestDto){
 
         compareBoxService.saveCompareBox(compareBoxRequestDto);
+        return ResponseEntity.ok().build();
     }
+
+    @GetMapping("api/test")
+    public void test(){
+        compareBoxService.test();
+    }
+
 
 
 }
