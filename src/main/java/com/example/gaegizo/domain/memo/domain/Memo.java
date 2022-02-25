@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 
@@ -17,9 +16,7 @@ import javax.persistence.*;
 public class Memo {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column(name = "memo_id")
-
     private Long id;
 
     private String content;

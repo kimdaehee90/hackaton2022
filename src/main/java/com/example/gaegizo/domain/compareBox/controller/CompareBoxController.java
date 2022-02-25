@@ -15,9 +15,12 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api")
 public class CompareBoxController {
+
     public final CompareBoxService compareBoxService;
     public final CompareBoxMapper compareBoxMapper;
+
 
     @GetMapping("/api/compare")
     public ResponseEntity<List<CompareBoxResponseDto>> compare(@RequestParam String jobNumber1, @RequestParam String jobNumber2, @RequestParam String jobNumber3){
@@ -33,12 +36,14 @@ public class CompareBoxController {
         return ResponseEntity.ok().body(response);
     }
 
+
     @PostMapping("/api/saveCompareBox")
     public ResponseEntity<?> saveCompareBox(@RequestBody CompareBoxRequestDto compareBoxRequestDto){
 
         compareBoxService.saveCompareBox(compareBoxRequestDto);
         return ResponseEntity.ok().build();
     }
+
 
     @GetMapping("/api/compareBoxList/{userId}")
     public ResponseEntity<CompareBoxListReponseDto> compareBoxList(@PathVariable Long userId){
@@ -54,3 +59,4 @@ public class CompareBoxController {
     }
 
 }
+

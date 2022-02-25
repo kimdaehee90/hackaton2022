@@ -9,6 +9,7 @@ import lombok.*;
 @Setter
 @Builder
 public class ExceptionResponse {
+
     private GaegizoErrorCode errorCode;
     private String message;
 }

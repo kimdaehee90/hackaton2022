@@ -4,6 +4,7 @@ import lombok.Getter;
 
 @Getter
 public class GaegizoException extends RuntimeException {
+
     private GaegizoErrorCode errorCode;
     private String message;
 
