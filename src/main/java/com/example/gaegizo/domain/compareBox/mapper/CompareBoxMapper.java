@@ -2,6 +2,7 @@ package com.example.gaegizo.domain.compareBox.mapper;
 
 import com.example.gaegizo.domain.compareBox.domain.CompareBox;
 import com.example.gaegizo.domain.compareBox.dto.request.CompareBoxRequestDto;
+import com.example.gaegizo.domain.compareBox.dto.request.UpdateCompareBoxRequestDto;
 import com.example.gaegizo.domain.compareBox.dto.response.CompareBoxIdResponseDto;
 import com.example.gaegizo.domain.compareBox.dto.response.CompareBoxListReponseDto;
 import com.example.gaegizo.domain.compareBox.dto.response.CompareBoxResponseDto;
@@ -12,6 +13,7 @@ import com.example.gaegizo.domain.user.domain.User;
 import com.example.gaegizo.domain.user.repository.UserRepository;
 import com.example.gaegizo.exception.GaegizoErrorCode;
 import com.example.gaegizo.exception.GaegizoException;
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -78,5 +80,20 @@ public class CompareBoxMapper {
                         .collect(Collectors.toList())
         );
 
+    }
+
+    @Builder
+    public CompareBox updateCompareBox(UpdateCompareBoxRequestDto updateCompareBoxRequestDto) {
+        CompareBox compareBox = compareBoxRepository.findById(updateCompareBoxRequestDto.getCompareBoxId()).orElseThrow(
+                () -> new GaegizoException(GaegizoErrorCode.COMPARE_BOX_NOT_FOUND)
+        );
+
+        compareBox.updateCompareBox(
+                updateCompareBoxRequestDto.getBoxName(),
+                updateCompareBoxRequestDto.getJobNumber1(),
+                updateCompareBoxRequestDto.getJobNumber2(),
+                updateCompareBoxRequestDto.getJobNumber3()
+        );
+        return compareBox;
     }
 }

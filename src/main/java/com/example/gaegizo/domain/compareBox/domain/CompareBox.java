@@ -49,5 +49,12 @@ public class CompareBox {
         this.jobNumber3 = jobNumber3;
     }
 
+    @Builder
+    public void updateCompareBox(String boxName, String jobNumber1, String jobNumber2, String jobNumber3){
+        this.boxName = boxName;
+        this.jobNumber1 = jobNumber1;
+        this.jobNumber2 = jobNumber2;
+        this.jobNumber3 = jobNumber3;
+    }
 
 }
