@@ -3,10 +3,12 @@ package com.example.gaegizo.domain.compareBox.mapper;
 import com.example.gaegizo.domain.compareBox.domain.CompareBox;
 import com.example.gaegizo.domain.compareBox.dto.request.CompareBoxRequestDto;
 import com.example.gaegizo.domain.compareBox.dto.response.CompareBoxResponseDto;
+import com.example.gaegizo.domain.compareBox.repository.CompareBoxRepository;
 import com.example.gaegizo.domain.interesetJob.domain.InterestJob;
 import com.example.gaegizo.domain.interesetJob.repository.InterestJobRepository;
 import com.example.gaegizo.domain.user.domain.User;
 import com.example.gaegizo.domain.user.repository.UserRepository;
+import com.example.gaegizo.exception.GaegizoErrorCode;
 import com.example.gaegizo.exception.GaegizoException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -22,6 +24,7 @@ public class CompareBoxMapper {
 
     private final InterestJobRepository interestJobRepository;
     private final UserRepository userRepository;
+    private final CompareBoxRepository compareBoxRepository;
 
     public CompareBoxResponseDto getInterestJob(String jobNumber){
         InterestJob interestJob = interestJobRepository.findByJobNumber(jobNumber).orElseThrow(
@@ -60,5 +63,12 @@ public class CompareBoxMapper {
                 compareBoxRequestDto.getJobNumber3()
         );
 
+    }
+    public CompareBox getCompareBox(CompareBoxRequestDto compareBoxRequestDto){
+
+        CompareBox compareBox = compareBoxRepository.findByUser_Id(compareBoxRequestDto.getUserId()).orElseThrow(
+                () -> new GaegizoException(GaegizoErrorCode.COMPARE_BOX_NOT_FOUND)
+        );
+        return compareBox;
     }
 }

@@ -6,5 +6,6 @@ import java.util.Optional;
 
 public interface CompareBoxRepository extends JpaRepository<CompareBox, Long> {
 
+    Optional<CompareBox> findByUser_Id(Long userId);
 }
 
