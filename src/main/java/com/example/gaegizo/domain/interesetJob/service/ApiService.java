@@ -35,12 +35,9 @@ public class ApiService {
                 JSONObject company = (JSONObject) jObj.get("company");
                 JSONObject companyDetail = (JSONObject) company.get("detail");
                 JSONObject position = (JSONObject) jObj.get("position");
-                JSONObject location = (JSONObject) position.get("location");
                 JSONObject industry = (JSONObject) position.get("industry");
-
                 JSONObject salary = (JSONObject) jObj.get("salary");
 
-                //Todo: 리팩토링 필요
                 InterestJob interestJob = interestJobRepository.findByJobNumber(jObj.get("id").toString())
                         .map(entity -> entity.update(position.get("title").toString(), industry.get("name").toString(), salary.get("name").toString()))
                         .orElse(InterestJob.builder()
@@ -50,7 +47,6 @@ public class ApiService {
                                 .salary(salary.get("name").toString())
                                 .jobNumber(jObj.get("id").toString())
                                 .build());
-
                 interestJobRepository.save(interestJob);
             }
         } catch (Exception e) {

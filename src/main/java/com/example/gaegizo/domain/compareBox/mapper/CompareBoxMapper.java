@@ -17,6 +17,7 @@ import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -32,11 +33,9 @@ public class CompareBoxMapper {
     private final UserRepository userRepository;
     private final CompareBoxRepository compareBoxRepository;
 
-    public CompareBoxResponseDto getInterestJob(String jobNumber){
-        InterestJob interestJob = interestJobRepository.findByJobNumber(jobNumber).orElseThrow(
-                () -> new GaegizoException(JOB_NUMBER_NOT_FOUND_EXCEPTION)
-        );
-
+    public CompareBoxResponseDto getInterestJob(String jobNumber) {
+        InterestJob interestJob = interestJobRepository.findByJobNumber(jobNumber)
+                .orElseThrow(() -> new GaegizoException(JOB_NUMBER_NOT_FOUND_EXCEPTION));
         return new CompareBoxResponseDto(
                 interestJob.getCompanyName(),
                 interestJob.getCareer(),
@@ -54,13 +53,11 @@ public class CompareBoxMapper {
                 interestJob.getEducation(),
                 interestJob.getDeadline()
         );
-
     }
-    public CompareBox saveCompareBox(CompareBoxRequestDto compareBoxRequestDto){
 
-        User user = userRepository.findById(compareBoxRequestDto.getUserId()).orElseThrow(
-                () -> new GaegizoException(USER_NOT_FOUND_EXCEPTION)
-        );
+    public CompareBox saveCompareBox(CompareBoxRequestDto compareBoxRequestDto) {
+        User user = userRepository.findById(compareBoxRequestDto.getUserId())
+                .orElseThrow(() -> new GaegizoException(USER_NOT_FOUND_EXCEPTION));
         return new CompareBox(
                 user,
                 compareBoxRequestDto.getBoxName(),
@@ -68,7 +65,6 @@ public class CompareBoxMapper {
                 compareBoxRequestDto.getJobNumber2(),
                 compareBoxRequestDto.getJobNumber3()
         );
-
     }
     public CompareBoxListReponseDto getCompareBoxList(Long userId){
 
