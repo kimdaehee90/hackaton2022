@@ -2,6 +2,7 @@ package com.example.gaegizo.domain.compareBox.service;
 
 import com.example.gaegizo.domain.compareBox.domain.CompareBox;
 import com.example.gaegizo.domain.compareBox.dto.request.CompareBoxRequestDto;
+import com.example.gaegizo.domain.compareBox.dto.response.CompareBoxListReponseDto;
 import com.example.gaegizo.domain.compareBox.dto.response.CompareBoxResponseDto;
 import com.example.gaegizo.domain.compareBox.mapper.CompareBoxMapper;
 import com.example.gaegizo.domain.compareBox.repository.CompareBoxRepository;
@@ -53,11 +54,10 @@ public class CompareBoxService {
         compareBoxRepository.save(result);
     }
 
+    public CompareBoxListReponseDto getComepareBox(Long userId){
 
-    public void test(){
-        Optional<InterestJob> interestJob = interestJobRepository.findByJobNumber("42349073");
-        interestJob.get().setSalary("4000");
-        interestJobRepository.save(interestJob.get());
+        CompareBoxListReponseDto result = compareBoxMapper.getCompareBoxList(userId);
+
+        return result;
     }
-
 }

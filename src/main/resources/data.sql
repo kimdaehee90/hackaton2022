@@ -8,4 +8,3 @@ INSERT INTO INTEREST_JOB(EDUCATION, AVERAGE_SALARY, CAREER, JOB, JOB_NUMBER, PRE
 INSERT INTO INTEREST_JOB(EDUCATION, AVERAGE_SALARY, CAREER, JOB, JOB_NUMBER, PREFERENTIAL_TREATMENT, REGION, SALARY, SECTORS, STATISTICS, TITLE, WELFARE, WORK_TYPE, DEADLINE, COMPANY_NAME, USER_ID) VALUES('학력 무관', '2800', '경력 무관', '기타 수산동물 가공 및 저장 처리업','42370652', '해당 분야 전공자 및 유경험자 우대', '서울특별시 강남구', '2800', 'IT웹 서비스', 20, '㈜코주부씨앤에프, ㈜코주부프레쉬쿡 , ㈜S&K 글로벌 각 부문 채용', '4대 보험', '정규직','상시채용', '(주)코주부씨앤에프', 1);
 
 
-insert into compare_box(job_Number1, job_Number2, job_Number3, user_id) values(1,1,1,1);
