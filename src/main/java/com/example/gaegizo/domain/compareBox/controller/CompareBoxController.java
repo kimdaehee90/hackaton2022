@@ -22,7 +22,7 @@ public class CompareBoxController {
     public final CompareBoxMapper compareBoxMapper;
 
 
-    @GetMapping("/api/compare")
+    @GetMapping("/compare")
     public ResponseEntity<List<CompareBoxResponseDto>> compare(@RequestParam String jobNumber1, @RequestParam String jobNumber2, @RequestParam String jobNumber3){
 
         List<CompareBoxResponseDto> responseList = compareBoxService.getCompareList(jobNumber1,jobNumber2,jobNumber3);
@@ -30,14 +30,14 @@ public class CompareBoxController {
     }
 
 
-    @GetMapping("/api/announcement")
+    @GetMapping("/announcement")
     public ResponseEntity<CompareBoxResponseDto> Announcement(@RequestParam String jobNumber){
         CompareBoxResponseDto response = compareBoxService.getAnnouncement(jobNumber);
         return ResponseEntity.ok().body(response);
     }
 
 
-    @PostMapping("/api/saveCompareBox")
+    @PostMapping("/saveCompareBox")
     public ResponseEntity<?> saveCompareBox(@RequestBody CompareBoxRequestDto compareBoxRequestDto){
 
         compareBoxService.saveCompareBox(compareBoxRequestDto);
@@ -45,18 +45,25 @@ public class CompareBoxController {
     }
 
 
-    @GetMapping("/api/compareBoxList/{userId}")
+    @GetMapping("/compareBoxList/{userId}")
     public ResponseEntity<CompareBoxListReponseDto> compareBoxList(@PathVariable Long userId){
 
         CompareBoxListReponseDto compareBox = compareBoxService.getComepareBox(userId);
         return ResponseEntity.ok().body(compareBox);
     }
 
-    @PostMapping("/api/updateCompareBox")
+    @PostMapping("/updateCompareBox")
     public ResponseEntity<?> updateCompareBox(@RequestBody UpdateCompareBoxRequestDto updateCompareBoxRequestDto){
         compareBoxService.updateCompareBox(updateCompareBoxRequestDto);
         return ResponseEntity.ok().build();
     }
 
+    @GetMapping("/test")
+    public void test(){
+        System.out.println("1================");
+
+//        compareBoxMapper.saveCompareBox(compareBoxRequestDto);
+        System.out.println("2==============");
+    }
 }
 
