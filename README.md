@@ -27,12 +27,12 @@ https://user-images.githubusercontent.com/56878724/155458029-b5c0e0c6-b431-44f8-
 
 | [김대희](https://github.com/kimdaehee90)         | 🎨 Back-end     |
 | ------------------------------------------ | ---------------- |
-| [하재인]() | **🎨 Back-end** |
+| [하재인](https://github.com/devjaein) | **🎨 Back-end** |
 
 ### API 명세서
 
 백엔드에서 사람인 api를 호출한 후 가공한 데이터를 프론트에게 넘겨주는 형식으로 개발됐습니다.
 
-🔗 링크 : https://kaput-middle-333.notion.site/API-092ce51316e741ab8ae514d5f3e6260c
+🔗 링크 : https://www.notion.so/API-5718337da8894d64aae3080ecfc89896
 
 
