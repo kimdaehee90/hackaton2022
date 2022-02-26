@@ -58,12 +58,5 @@ public class CompareBoxController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/test")
-    public void test(){
-        System.out.println("1================");
-
-//        compareBoxMapper.saveCompareBox(compareBoxRequestDto);
-        System.out.println("2==============");
-    }
 }
 
