@@ -27,7 +27,7 @@ https://user-images.githubusercontent.com/56878724/155458029-b5c0e0c6-b431-44f8-
 
 | [김대희](https://github.com/kimdaehee90)         | 🎨 Back-end     |
 | ------------------------------------------ | ---------------- |
-| [하재인]() | **🎨 Back-end** |
+| [하재인](https://github.com/devjaein) | **🎨 Back-end** |
 
 ### API 명세서
 
