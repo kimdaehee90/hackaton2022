@@ -22,6 +22,7 @@ public class CompareBoxService {
     private final CompareBoxRepository compareBoxRepository;
     private final CompareBoxMapper compareBoxMapper;
 
+    @Transactional
     public List<CompareBoxResponseDto> getCompareList(String jobNumber1, String jobNumber2, String jobNumber3) {
         CompareBoxResponseDto compareBoxResponseDto1 = compareBoxMapper.getInterestJob(jobNumber1);
         CompareBoxResponseDto compareBoxResponseDto2 = compareBoxMapper.getInterestJob(jobNumber2);
@@ -35,17 +36,20 @@ public class CompareBoxService {
         return result;
     }
 
+    @Transactional
     public CompareBoxResponseDto getAnnouncement(String jobNumber) {
         CompareBoxResponseDto compareBoxResponseDto = compareBoxMapper.getInterestJob(jobNumber);
         return compareBoxResponseDto;
     }
 
+    @Transactional
     public void saveCompareBox(CompareBoxRequestDto compareBoxRequestDto) {
         CompareBox result = compareBoxMapper.saveCompareBox(compareBoxRequestDto);
         compareBoxRepository.save(result);
     }
 
 
+    @Transactional
     public CompareBoxListReponseDto getComepareBox(Long userId){
 
         CompareBoxListReponseDto result = compareBoxMapper.getCompareBoxList(userId);
@@ -53,9 +57,14 @@ public class CompareBoxService {
         return result;
     }
 
+    @Transactional
     public void updateCompareBox(UpdateCompareBoxRequestDto updateCompareBoxRequestDto) {
         CompareBox compareBox = compareBoxMapper.updateCompareBox(updateCompareBoxRequestDto);
         compareBoxRepository.save(compareBox);
     }
 
+    public void deleteCompareBox(Long comapareBoxId) {
+        CompareBox compareBox = compareBoxMapper.deleteCompareBox(comapareBoxId);
+        compareBoxRepository.delete(compareBox);
+    }
 }
