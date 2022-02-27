@@ -57,6 +57,11 @@ public class CompareBoxController {
         compareBoxService.updateCompareBox(updateCompareBoxRequestDto);
         return ResponseEntity.ok().build();
     }
+    @DeleteMapping("/deleteCompareBox/{comapareBoxId}")
+    public ResponseEntity<?> deleteComepareBox(@PathVariable Long comapareBoxId){
+        compareBoxService.deleteCompareBox(comapareBoxId);
+        return ResponseEntity.ok().build();
+    }
 
 }
 

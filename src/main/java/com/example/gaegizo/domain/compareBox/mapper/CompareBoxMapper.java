@@ -92,4 +92,11 @@ public class CompareBoxMapper {
         );
         return compareBox;
     }
+
+    public CompareBox deleteCompareBox(Long comapareBoxId) {
+        CompareBox compareBox = compareBoxRepository.findById(comapareBoxId).orElseThrow(
+                () -> new GaegizoException(GaegizoErrorCode.COMPARE_BOX_NOT_FOUND)
+        );
+        return compareBox;
+    }
 }
